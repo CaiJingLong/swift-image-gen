@@ -1,5 +1,5 @@
 # 生成ios Swift Image
-# see SwiftGen 项目
+# 思路来源于SwiftGen 项目,代码为独立编写
 # 用于生成一个类,用于维护整体的项目资源
 #
 # The 3-Clause BSD License
@@ -119,7 +119,7 @@ class Path:
 
     def make_file_string(self, index=1):
         tab = make_tab(index)
-        r = "%sstruct %s {\n\n" % (tab, self.selfPath)
+        r = "%sstruct %s {\n\n" % (tab, self.path_name())
 
         r += self.make_image_name(index + 1)
 
@@ -129,6 +129,15 @@ class Path:
 
         r += "%s}\n" % tab
         return r
+
+    def path_name(self):
+        p: str = self.selfPath
+        try:
+            rindex = p.rindex("/")
+            return first_upper(p[rindex + 1:])
+        except:
+            return first_upper(p)
+            pass
 
 
 # 获取所有图片文件夹
