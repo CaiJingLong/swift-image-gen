@@ -1,0 +1,3 @@
+targetFile: 'Assert.swift'
+gen-struct-name: 'ImageConst'
+imagePath: ['../assert','/Users/cai/PycharmProjects/PythonProject/qrcode/qrcode/qrcode']
