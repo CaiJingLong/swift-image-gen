@@ -20,7 +20,7 @@ python3 SwiftImageGen.py
 > in swift
 
 ```swift
-ImageConst.Image.SXW-40002.toUIImage()
+let img:UIImage? = ImageConst.Image.SXW-40002.toUIImage()
 ```
 
 ### yml config
