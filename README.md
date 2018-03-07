@@ -3,21 +3,19 @@ generator image struct for swift
 
 ## usage
 
-use yml with config file
+1. download .py and .yml
 
-so,you need install yaml with pip
+2. install python3
 
-```
-pip3 install PyYaml
-```
+3. install pip3
 
-> second in console:
+4. inconsole `pip3 install PyYaml`
 
-```term
-python3 SwiftImageGen.py 
-```
+5. config yml config
 
-> in swift
+6. in console input `python3 SwiftImageGen.py`
+        
+7. in swift usage
 
 ```swift
 let img:UIImage? = ImageConst.Image.SXW-40002.toUIImage()
@@ -34,8 +32,11 @@ imagePath: ['../assert','/Users/cai/PycharmProjects/PythonProject/qrcode/qrcode/
 ```
 
 
-### swift style
+### genartor swift style 
+
 generate swift file
+
+If you hava different style,then please fork project,and modify python file or email to me,or add a issue
 
 ```swift
 import UIKit
