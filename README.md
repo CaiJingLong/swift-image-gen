@@ -1,9 +1,10 @@
 # swift-image-gen
-generate image struct for swift
+generate image struct for swift  
 python script for generate SwiftFile For your project
 
-the idea from SwiftGen
-![SwiftGen](https://github.com/SwiftGen/SwiftGen)
+the idea from SwiftGen,thanks
+
+[SwiftGen](https://github.com/SwiftGen/SwiftGen)
 
 ## usage
 
