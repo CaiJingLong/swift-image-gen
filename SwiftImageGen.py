@@ -42,7 +42,10 @@ LICENSE = """/// The 3-Clause BSD License
 /// github : https://github.com/Caijinglong
 
 
+"""
 
+doc = """ /// # ImageAssert constant
+/// use %s.%s.%s.toUIImage()
 """
 
 import os
@@ -103,6 +106,10 @@ class Path:
 
     pass
 
+    @staticmethod
+    def fix_name(name: str):
+        return name.replace("-", "_").replace(".", "_")
+
     def make_image_name(self, index):
         r = ""
         tab = make_tab(index)
@@ -110,11 +117,13 @@ class Path:
         for img_path in self.images:
             p: str = img_path
             rindex = p.rindex(".")
-            name = p[:rindex].replace("@2x", "").replace("@3x", "")
+            name = p[:rindex].replace("@2x", "").replace("@3x", "").replace("@1x", "")
+            if not p.endswith(".png"):
+                name += p[rindex:]
             names.add(name)
 
         for name in names:
-            r += '%sstatic let %s = "%s"\n\n' % (tab, name, name)
+            r += '%sstatic let %s = "%s"\n\n' % (tab, Path.fix_name(name), name)
         return r
 
     def make_file_string(self, index=1):
@@ -161,6 +170,9 @@ for path in allDirs:
     obj = Path(path)
     pathList.append(obj)
     obj.scan_image()
+
+# doc = doc % (struct_name, pathList[0].path_name(), pathList[0].images[])
+# print(doc)
 
 result += "struct %s {\n\n" % struct_name
 for path in pathList:
